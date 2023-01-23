@@ -24,6 +24,8 @@ module.exports.userController = {
     User.findByIdAndUpdate(req.params.id, {
         name: req.body.name,
         $push: {save: req.body.save}
-    })
+    }).then((data)=> {
+      res.json(data)
+    }).catch((err)=> res.json(err))
   }
 };
